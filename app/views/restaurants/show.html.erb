@@ -1,2 +1,25 @@
-<h1>Restaurants#show</h1>
-<p>Find me in app/views/restaurants/show.html.erb</p>
+<h1>Welcome to <%= @restaurant.name %></h1>
+
+<h3 class="mt-4">Restaurant Details</h3>
+<div>
+  <ul class="list-group">
+    <li class="list-group-item"><%= @restaurant.address %></li>
+    <li class="list-group-item"><%= @restaurant.phone_number.present? ? @restaurant.phone_number : "No Phone Number" %></li>
+    <li class="list-group-item"><%= @restaurant.category %></li>
+  </ul>
+</div>
+
+<div class="my-4">
+  <div class="d-flex justify-content-between align-items-center">
+    <h3>Restaurant Reviews</h3>
+    <%= link_to "Write A Review", new_restaurant_review_path(@restaurant), class: "btn btn-primary" %>
+  </div>
+  <ul class="list-group mt-4">
+    <% @reviews.each do |review| %>
+      <li class="list-group-item">
+        <strong>Rating:</strong> <%= review.rating %><br>
+        <strong>Comment:</strong> <%= review.content %>
+      </li>
+    <% end %>
+  </ul>
+</div>
