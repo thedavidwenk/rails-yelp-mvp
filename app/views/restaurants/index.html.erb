@@ -1,18 +1,21 @@
-<h1>Restaurants Overview</h1>
-
+<div class="d-flex justify-content-between align-items-center">
+  <h1>Restaurants Overview</h1>
+  <%= link_to "Add New Restaurant", new_restaurant_path, class: "btn btn-primary"%>
+</div>
 
 <% @restaurants.reverse_each do |restaurant| %>
   <div>
-    <h2> 
-      <a href="/restaurants/<%= restaurant.id %>">
-        <%= restaurant.name %>
-      </a>
-    </h2>
-    <p>
-     Address:  <%= restaurant.address  %>
-    </p>
-    <p>
-     Category:  <%= restaurant.category.capitalize  %>
-    </p>
+      <h2> 
+        <a href="/restaurants/<%= restaurant.id %>">
+          <%= restaurant.name %>
+        </a>
+      </h2>
+      <p>
+      Address:  <%= restaurant.address  %>
+      </p>
+      <p>
+      Category:  <%= restaurant.category.capitalize  %>
+      </p>
+      <%= link_to "See details", restaurant_path(restaurant), class: "btn btn-primary"%>
   </div>
 <% end %>
