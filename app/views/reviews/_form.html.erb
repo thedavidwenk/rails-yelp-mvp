@@ -2,10 +2,10 @@
   <div class="form-input">
     <%= f.input :rating, collection: 1..5, prompt: 'Select a rating' %>
     <%= f.label :content %>
-    <%= f.text_area :content, rows: 5 %>
+    <%= f.text_area :content, rows: 5, placeholder: "Write your review", class: "form-control", style: "resize: none;" %>
   </div>
 
-    <div class="form-actions">
+  <div class="form-actions mt-3">
     <%= f.button :submit, class: "btn btn-primary"%>
   </div>
 <% end %>
